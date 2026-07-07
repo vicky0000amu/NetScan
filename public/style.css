@@ -281,3 +281,43 @@ td {
   padding: 18px;
   border-top: 1px solid var(--panel-border);
 }
+
+
+
+
+
+
+/* ==========================
+   Navigation Bar
+========================== */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:#10151d;
+    border-bottom:1px solid #1f2937;
+}
+
+.navbar h2{
+    color:#38bdf8;
+    margin:0;
+    font-size:26px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
+}
