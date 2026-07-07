@@ -7,6 +7,7 @@ const { runScan, listProfiles } = require("./utils/nmapScanner");
 const supabase = require("./config/supabase");
 
 const app = express();
+app.set("trust proxy", 1);
 app.get("/test", (req, res) => {
   res.send("NetScan is working!");
 });

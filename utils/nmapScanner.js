@@ -74,11 +74,23 @@ function runScan(target, profileKey) {
       args,
       { timeout: 120000, maxBuffer: 1024 * 1024 * 10 }, // 2 min timeout, 10MB buffer
       (error, stdout, stderr) => {
-        if (error && !stdout) {
-          return reject(new Error(stderr || error.message));
-        }
 
-        xml2js.parseString(stdout, (parseErr, result) => {
+  console.log("========== STDOUT ==========");
+  console.log(stdout);
+
+  console.log("========== STDERR ==========");
+  console.log(stderr);
+
+  if (error) {
+    console.log("========== ERROR ==========");
+    console.log(error);
+  }
+
+  if (error && !stdout) {
+    return reject(new Error(stderr || error.message));
+  }
+
+  xml2js.parseString(stdout, (parseErr, result) => {
           if (parseErr) {
             return reject(new Error("Failed to parse nmap output."));
           }
