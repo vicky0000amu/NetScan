@@ -107,6 +107,8 @@ app.post("/scan", scanLimiter, async (req, res) => {
 
   try {
     const result = await runScan(target, profile);
+    console.log("Scan Result:");
+    console.log(JSON.stringify(result, null, 2));
 
     const host = result.hosts[0];
     const ip = host.address;
