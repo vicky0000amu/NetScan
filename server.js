@@ -108,6 +108,11 @@ app.post("/scan", scanLimiter, async (req, res) => {
 
   try {
     const result = await runScan(target, profile);
+    if (!result.hosts || result.hosts.length === 0) {
+  return res.status(400).json({
+    error: "No hosts found. The scan could not be completed in the current environment."
+  });
+}
     console.log("Scan Result:");
     console.log(JSON.stringify(result, null, 2));
 
