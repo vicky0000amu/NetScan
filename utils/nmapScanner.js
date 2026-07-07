@@ -15,15 +15,15 @@ const SCAN_PROFILES = {
   },
   quick: {
   label: "Quick Scan (top 100 ports)",
-  args: ["-sT", "-T4", "-F"],
+  args: ["-Pn", "-sT", "-T4", "-F"],
 },
   standard: {
     label: "Standard Scan (top 1000 ports + service versions)",
-    args: ["-sT", "-T4", "-sV"],
+    args: ["-Pn", "-sT", "-T4", "-sV"],
   },
   full: {
     label: "Full Scan (all 65535 ports, slower)",
-    args: ["-sT", "-T4", "-p-"],
+    args: ["-Pn", "-sT", "-T4", "-p-"],
   },
 };
 
