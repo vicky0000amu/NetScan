@@ -7,6 +7,9 @@ const { runScan, listProfiles } = require("./utils/nmapScanner");
 const supabase = require("./config/supabase");
 
 const app = express();
+app.get("/test", (req, res) => {
+  res.send("NetScan is working!");
+});
 const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
