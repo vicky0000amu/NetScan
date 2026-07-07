@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetScan — Nmap Port Scanner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      NET<span class="accent">SCAN</span>
+    </div>
+    <div class="topbar-sub">nmap-powered · web console</div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="panel form-panel">
+      <h1>Scan a host</h1>
+      <p class="subtitle">Enter a target you own or are explicitly authorized to test.</p>
+
+      <form id="scanForm">
+        <label for="target">Target (IP or hostname)</label>
+        <input
+          type="text"
+          id="target"
+          name="target"
+          placeholder="e.g. 192.168.1.1 or scanme.nmap.org"
+          autocomplete="off"
+          required
+        />
+
+        <label for="profile">Scan type</label>
+        <select id="profile" name="profile">
+          <% profiles.forEach(function(p) { %>
+            <option value="<%= p.key %>"><%= p.label %></option>
+          <% }); %>
+        </select>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="confirmAuthorized" name="confirmAuthorized" required />
+          <span>I own this target or have explicit permission to scan it.</span>
+        </label>
+
+        <button type="submit" id="scanBtn">
+          <span id="btnLabel">Run Scan</span>
+        </button>
+
+        <p id="formError" class="error-text"></p>
+      </form>
+    </section>
+
+    <section class="panel results-panel">
+      <div class="results-header">
+        <h2>Results</h2>
+        <div id="radar" class="radar hidden">
+          <div class="radar-ring r1"></div>
+          <div class="radar-ring r2"></div>
+          <div class="radar-ring r3"></div>
+          <div class="radar-sweep"></div>
+        </div>
+      </div>
+
+      <div id="resultsBody" class="results-body">
+        <p class="placeholder">// scan output will appear here</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Only scan systems you own or are authorized to test. Unauthorized scanning may be illegal in your jurisdiction.
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
