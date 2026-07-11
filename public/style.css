@@ -325,24 +325,37 @@ td {
 
 
 
-.target-note {
-  margin: 12px 0 18px;
-  padding: 12px;
-  background: rgba(255, 193, 7, 0.08);
-  border-left: 4px solid #ffc107;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #d8e1e8;
+.target-note{
+    margin:12px 0 18px;
+    padding:12px 14px;
+    border:1px solid #1e3b4f;
+    border-left:4px solid #22d3ee;
+    background:#0f1824;
+    border-radius:8px;
+    color:#cfd8e3;
+    font-size:13px;
+    line-height:1.55;
 }
 
-.target-note strong {
-  color: #ffc107;
+.note-header{
+    color:#22d3ee;
+    font-weight:700;
+    margin-bottom:8px;
+    font-size:14px;
 }
 
-.target-note code {
-  background: rgba(255,255,255,0.08);
-  padding: 2px 5px;
-  border-radius: 4px;
-  color: #4fd1ff;
+.target-note p{
+    margin:8px 0;
+}
+
+.target-note strong{
+    color:#ffffff;
+}
+
+.target-note code{
+    background:#162536;
+    color:#58d8ff;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:12px;
 }
