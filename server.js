@@ -5,11 +5,24 @@ const rateLimit = require("express-rate-limit");
 const path = require("path");
 const { runScan, listProfiles } = require("./utils/nmapScanner");
 const supabase = require("./config/supabase");
+const PDFDocument = require("pdfkit");
 
 const app = express();
 app.set("trust proxy", 1);
 app.get("/test", (req, res) => {
   res.send("NetScan is working!");
+});
+// ----------------------------------------------------------------------
+// Local Agent Status API
+// ----------------------------------------------------------------------
+
+app.get("/status", (req, res) => {
+  res.json({
+    connected: true,
+    agent: "NetScan Local Agent",
+    version: "1.0",
+    status: "Running"
+  });
 });
 const PORT = process.env.PORT || 3000;
 
@@ -39,6 +52,26 @@ app.get("/", (req, res) => {
   res.render("index", {
     profiles: listProfiles(),
   });
+});
+app.get("/dashboard", async (req, res) => {
+
+  // Total number of scans
+  const { count: totalScans } = await supabase
+    .from("scans")
+    .select("*", { count: "exact", head: true });
+
+  // Latest scan
+  const { data: latestScan } = await supabase
+    .from("scans")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(1);
+
+  res.render("dashboard", {
+    totalScans,
+    latestScan: latestScan[0] || null,
+  });
+
 });
 
 // ----------------------------------------------------------------------

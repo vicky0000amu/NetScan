@@ -325,6 +325,7 @@ td {
 
 
 
+<<<<<<< HEAD
 .target-note{
     margin:12px 0 18px;
     padding:12px 14px;
@@ -358,4 +359,28 @@ td {
     padding:2px 6px;
     border-radius:4px;
     font-size:12px;
+=======
+.recommendation-box{
+    margin-top:20px;
+    padding:18px;
+    border:1px solid #2b3440;
+    border-radius:10px;
+    background:#161d27;
+}
+
+.recommendation-box h3{
+    color:#38bdf8;
+    margin-bottom:12px;
+}
+
+.recommendation-box ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.recommendation-box li{
+    margin-bottom:10px;
+    line-height:1.6;
+    color:#d1d5db;
+>>>>>>> 3e1d7c7 (Added Local Agent section)
 }
