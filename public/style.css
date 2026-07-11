@@ -321,3 +321,28 @@ td {
 .nav-links a:hover{
     color:#38bdf8;
 }
+
+
+
+
+.target-note {
+  margin: 12px 0 18px;
+  padding: 12px;
+  background: rgba(255, 193, 7, 0.08);
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #d8e1e8;
+}
+
+.target-note strong {
+  color: #ffc107;
+}
+
+.target-note code {
+  background: rgba(255,255,255,0.08);
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #4fd1ff;
+}
